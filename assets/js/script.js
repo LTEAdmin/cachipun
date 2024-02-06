@@ -3,8 +3,12 @@ let randompc;
 let usuario;
 let numveces = 0;
 let ganador;
+let jugador;
 
-numveces=parseInt(prompt("Introduce el numero de jugadas"));
+
+jugador=prompt("Introduce tu nombre");
+numveces = parseInt(prompt(` Hola ${jugador} dime cuantes veces quieres jugar`));
+
 /* repetir numero de veces que quiere jugar el usuario */
 for (let i = 0; i < numveces; i++) {
     usuario = prompt("Piedra, Papel o Tijera?");
@@ -20,9 +24,13 @@ for (let i = 0; i < numveces; i++) {
       // code block
       break;
     default:
-    // code block
+      ganador = true;
   }
-
- document.write(`El ganador es: ${ganador} en la jugada (${i+1})<br>`);
+  if (ganador==true) {
+    document.write(`El ganador es: ${jugador}} en la jugada (${i + 1})<br>`);
+  }
+  else { 
+    document.write(`El ganador es: el computador en la jugada (${i+1})<br>`);
+  }
 }
 
