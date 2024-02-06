@@ -6,9 +6,9 @@ let ganador;
 let jugador;
 
 
-jugador=prompt("Introduce tu nombre");
-numveces = parseInt(prompt(` Hola ${jugador} dime cuantes veces quieres jugar`));
-
+/* jugador=prompt("Introduce tu nombre"); */
+/* numveces = parseInt(prompt(` Hola ${jugador} dime cuantes veces quieres jugar`));
+ */
 /* repetir numero de veces que quiere jugar el usuario */
 for (let i = 0; i < numveces; i++) {
     usuario = prompt("Piedra, Papel o Tijera?");
