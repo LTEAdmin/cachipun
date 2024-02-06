@@ -19,6 +19,7 @@ for (let i = 0; i < numveces; i++) {
       break;
     case ("Papel" || "papel"):
       // code block
+      
       break;
     case ("Tijera" || "tijera"):
       // code block
