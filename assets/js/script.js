@@ -1,37 +1,65 @@
+const btnpiedra = document.getElementById("piedra");
+const btnpapel = document.getElementById("papel");
+const btntijera = document.getElementById("tijera");
+
 /* definicion de variables*/
 let randompc;
 let usuario;
+const numvecesIni = document.getElementById("ngames").value;
 let numveces = 0;
-let ganador;
 let jugador;
 
+btnpiedra.addEventListener("click", jugar("piedra"));
 
-/* jugador=prompt("Introduce tu nombre"); */
-/* numveces = parseInt(prompt(` Hola ${jugador} dime cuantes veces quieres jugar`));
- */
-/* repetir numero de veces que quiere jugar el usuario */
-for (let i = 0; i < numveces; i++) {
-    usuario = prompt("Piedra, Papel o Tijera?");
-  /* selector de ganador */
-  switch (Usuario) {
-    case ("Piedra" || "piedra"):
-      // code block
-      break;
-    case ("Papel" || "papel"):
-      // code block
-      
-      break;
-    case ("Tijera" || "tijera"):
-      // code block
-      break;
-    default:
-      ganador = true;
-  }
-  if (ganador==true) {
-    document.write(`El ganador es: ${jugador}} en la jugada (${i + 1})<br>`);
-  }
-  else { 
-    document.write(`El ganador es: el computador en la jugada (${i+1})<br>`);
+btnpapel.addEventListener("click", jugar("papel"));
+
+btntijera.addEventListener("click", jugar("tijera"));
+
+function jugar(seleccion) {
+  numveces += 1;
+  if (numveces <= numvecesIni) {
+    randompc = Math.floor(Math.random() * 3);
+    switch (randompc) {
+      case 0: {
+        randompc = "piedra";
+        break;
+      }
+      case 1: {
+        randompc = "papel";
+        break;
+      }
+      case 2: {
+        randompc = "tijera";
+        break;
+      }
+    }
+    document.write(`la maquina eligio ${randompc}<br>`);
+
+    if (randompc == seleccion) {
+      /* si el computador y el jugador eligen la misma figura empatan*/
+
+      document.write(`el juego fue un empate<br>`);
+    } else if (seleccion == "piedra" && randompc == "tijera") {
+      /* si el jugador selecciona piedra y la maquina tijera Jugador gana*/
+      document.write(`el juego fue ganado por el ${fname.value}<br>`);
+    } else if (seleccion == "papel" && randompc == "piedra") {
+      /* si el jugador selecciona papel  y la maquina piedra Jugador gana*/
+      document.write(`el juego fue ganado por el ${fname.value}<br>`);
+    } else if (seleccion == "tijera" && randompc == "papel") {
+      /* si el jugador selecciona tijera y la maquina papel Jugador gana*/
+      document.write(`el juego fue ganado por el ${fname.value}<br>`);
+    } else if (seleccion == "tijera" && randompc == "piedra") {
+      /* si el jugador selecciona tijera y la maquina piedra Jugador pierde*/
+      document.write(`el juego fue ganado por la maquina <br>`);
+    } else if (seleccion == "papel" && randompc == "tijera") {
+      /* si el jugador selecciona papel y la maquina tijera Jugador pierde*/
+      document.write(`el juego fue ganado por la maquina <br>`);
+    } else if (seleccion == "piedra" && randompc == "papel") {
+      /* si el jugador selecciona piedra y la maquina papel Jugador pierde*/
+      document.write(`el juego fue ganado por la maquina <br>`);
+    }
+    document.write(`te quedan ${numvecesIni - numveces} jugadas <br>`);
+  } else {
+    document.write(`el juego ha terminado`);
   }
 }
-
